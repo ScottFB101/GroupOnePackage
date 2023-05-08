@@ -1,25 +1,44 @@
-#' Creates themed box plots from a raw dataframe
+#' Creates box plots of every numeric variable in any data frame.
 #'
-#' @param data data.frame
+#' @param dataframe Any data frame
 #'
+#' @return A ggplot graph of box plots.
 #'
-#' @return A ggplot object
+#' @importFrom tidyr pivot_longer
+#' @import ggplot2
 #'
-#'
-#'
-#'
+#' @export
 create_box_plots <- function(data) {
 
-  data_summarized <- summaryfunction()
+  #Using helper function
+  numeric_data <- check_numeric_columns(data)
 
-  ggplot(data, aes(x = category, y = value, fill = category)) +
+  long_data <- pivot_longer(numeric_data,
+                            cols = everything(),
+                            names_to = "variable",
+                            values_to = "value")
+  #Create the box plot
+  ggplot(long_data, aes(x = variable, y = value)) +
     geom_boxplot() +
-    scale_fill_hue(name = "Category") +
-    labs(title = "Box Plot Example", x = "Category", y = "Value") +
-    theme_minimal()
-
+    labs(title = "Boxplot of Numeric Variables",
+         x = "Variables",
+         y = "Values") +
+    theme_classic()
 }
-# Helper function
-#Summarize function...
 
-# returns boxplot object? ggplot object?
+#' Returns a data frame containing only the numeric columns of the original data frame
+#'
+#' @param data Any data frame.
+#'
+#' @return A subset of numeric variables from the original data frame.
+check_numeric_columns <- function(data) {
+
+  stopifnot(is.data.frame(data))
+
+  #Is the column numeric?
+  is_numeric <- sapply(data, is.numeric)
+  #Subset to only numeric columns
+  numeric_data <- data[, is_numeric]
+
+  return(numeric_data)
+}

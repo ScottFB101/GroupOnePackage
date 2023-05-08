@@ -1,15 +1,20 @@
 test_that("create_box_plots works", {
-  correct_result <-
 
-  my_result <- give_candygrams()
+  #Checking length of ggplot object is 9
+  correct_length <- 9
+  my_length <- length(create_box_plots(mtcars))
+  expect_equal(my_length, correct_length)
 
-  expect_equal(my_result, correct_result)
+  #Checking that a ggplot object is returned
+  expect_type(create_box_plots(mtcars), "list")
+
 })
 
-test_that("summary_function works", {
-  correct_result <-
+test_that("check_numeric_columns works", {
 
-    my_result <- give_candygrams()
+  my_result <- check_numeric_columns(iris)
 
-  expect_equal(my_result, correct_result)
+  #Returns "list", which is really a data frame.
+  expect_type(my_result, "list")
+
 })
