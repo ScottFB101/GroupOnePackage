@@ -10,6 +10,8 @@
 #'
 create_box_plots <- function(data) {
 
+  data_summarized <- summaryfunction()
+
   ggplot(data, aes(x = category, y = value, fill = category)) +
     geom_boxplot() +
     scale_fill_hue(name = "Category") +
