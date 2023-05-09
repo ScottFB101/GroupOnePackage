@@ -14,11 +14,13 @@
 create_line_plot <- function(data, x, y) {
 
   stopifnot(is.data.frame(data))
+
   stopifnot(ncol(numeric_columns(data)) >= 2)
+
   ggplot(data, aes({{x}}, {{y}})) +
     geom_line(color = "Black")
 }
-#' Returns a data frame containing numeric columns of the original data frame
+#' Returns a data frame containing numeric columns of the data frame
 #'
 #' @param data Any data frame.
 #'
