@@ -2,11 +2,15 @@ Package: Visualizr
 Title: Transforms data frames into different types of visualizations.
 Version: 0.0.0.9000
 Authors@R: 
-    person(
-      given = "Scott", 
-      family = "Brydon", 
-      email = "sbrydon@calpoly.edu", 
-      role = c("aut"))
+    c(person(given = "Scott",
+           family = "Brydon",
+           role = c("aut", "cre"),
+           email = "sbrydon@calpoly.edu"),
+      person(given = "Cady",
+           family = "Heron",
+           role = c("aut"),
+           email = "first.last@example.com")
+           )
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
@@ -17,4 +21,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
-    magrittr
+    magrittr,
+    ggplot2,
+    tidyr
