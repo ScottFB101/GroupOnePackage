@@ -1,4 +1,4 @@
-#' Creates bar plots of every categorical variable in a data frame
+#' #' Creates bar plots of every categorical variable in a data frame
 #'
 #' @param dataframe Any data frame
 #'
@@ -53,4 +53,3 @@ filter_categorical <- function(data) {
   return(data %>%
            select(which(categorical_cols)))
 }
-
