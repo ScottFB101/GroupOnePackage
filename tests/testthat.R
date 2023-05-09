@@ -1,4 +1,4 @@
 library(testthat)
-library(GroupOnePackage)
+library(Visualizr)
 
-test_check("GroupOnePackage")
+test_check("Visualizr")
