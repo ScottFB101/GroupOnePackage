@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_line_plot.R, R/create_scatter_plot.R
 \name{numeric_columns}
 \alias{numeric_columns}
-\title{Returns a data frame containing numeric columns of the original data frame}
+\title{Returns a data frame containing numeric columns of the data frame}
 \usage{
 numeric_columns(data)
 
@@ -17,7 +17,7 @@ A subset of numeric variables from the original data fram to test if line plot c
 A subset of numeric variables from the original data frame. Used to test to see if scatter plot can be made
 }
 \description{
-Returns a data frame containing numeric columns of the original data frame
+Returns a data frame containing numeric columns of the data frame
 
 Returns a data frame containing numeric columns of the original data frame
 }
