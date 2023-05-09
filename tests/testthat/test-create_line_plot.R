@@ -10,7 +10,7 @@ test_that("create_line_plot works", {
 
 })
 
-test_that("checking that the line plot stops if only one numerical column works", {
+test_that("check for if line plot stops due to incapatable column", {
   a <- c(1,2)
   b <- c('pink', 'green')
   df <- numeric_columns(data.frame(a,b))
