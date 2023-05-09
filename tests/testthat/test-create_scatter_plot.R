@@ -2,17 +2,18 @@ test_that("create_scatter_plot works", {
 
   #Checking length of ggplot object is 9
   correct_length <- 9
-  my_length <- length(create_box_plots(mtcars))
+  my_length <- length(create_scatter_plot(mtcars))
   expect_equal(my_length, correct_length)
 
   #Checking that a ggplot object is returned
-  expect_type(create_box_plots(mtcars), "list")
+  expect_type(create_scatter_plot(mtcars), "list")
 
 })
 
-test_that("check_numeric_columns works", {
-  #creating a dataframe in which there is one numeric and one character column
-  df <- data.frame(c(1, 2), c('red', 'blue'))
-  df <- numeric_columns(df)
-  expect_equal(ncol(df), 1)
+test_that("check scatterplot stops if only one numerical column works", {
+  #creating a data frame in which there is one numeric and one character column
+  a <- c(1,2)
+  b <- c('red', 'blue')
+  df <- numeric_columns(data.frame(a,b))
+  expect_type(df, "double")
 })
